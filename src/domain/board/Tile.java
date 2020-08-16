@@ -24,7 +24,10 @@ public abstract class Tile {
 
     }
 
-    public Tile createOccpiedTile(int tileNumber, Piece piece){
+
+
+
+    public static Tile createTile(int tileNumber, Piece piece){
         if (piece != null)
             return new OccupiedTile(tileNumber, piece);
         else
@@ -40,4 +43,8 @@ public abstract class Tile {
 
     public abstract Piece getPiece();
 
+    @Override
+    public String toString() {
+        return "  - ";
+    }
 }

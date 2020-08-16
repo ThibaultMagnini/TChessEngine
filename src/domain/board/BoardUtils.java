@@ -1,5 +1,7 @@
 package domain.board;
 
+import com.google.common.collect.ImmutableList;
+
 public class BoardUtils {
 
     public static final boolean[] FIRST_COLUMN = initCol(0);
@@ -27,26 +29,16 @@ public class BoardUtils {
     }
 
 
-    private static boolean[] initRow(int rowNumber){
-        final boolean[] grid = new boolean[64];
 
-        if (rowNumber == 1) {
-            for (int i = 0; i < 64; i++) {
-                if (i == 8) {
-                    for (int j = 0; j < 8; j++)
-                        grid[i + j] = true;
-                }
-            }
+    private static boolean[] initRow(int rowNumber) {
+        final boolean[] row = new boolean[64];
+        for(int i = 0; i < row.length; i++) {
+            row[i] = false;
         }
-
-        if (rowNumber == 6) {
-            for (int i = 0; i < 64; i++) {
-                if (i == 47) {
-                    for (int j = 0; j < 8; j++)
-                        grid[i + j] = true;
-                }
-            }
+        while(rowNumber % 8 != 0) {
+            row[rowNumber] = true;
+            rowNumber++;
         }
-        return grid;
+        return row;
     }
 }

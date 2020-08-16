@@ -16,7 +16,7 @@ public class Rook extends Piece {
 
     private int[] POSSIBLE_MOVES_OPTIONS = {-8, 1, -1, 8};
 
-    Rook(int piecePos, Color color) { super(piecePos, color); }
+    public Rook(Color color, int piecePos) { super(piecePos, color); }
 
 
     @Override
@@ -60,5 +60,10 @@ public class Rook extends Piece {
 
     private boolean isEightColumnBoundary(int currentPos, int possibleOffset) {
         return BoardUtils.FIRST_COLUMN[currentPos] && possibleOffset == 1;
+    }
+
+    @Override
+    public String toString() {
+        return "♖";
     }
 }

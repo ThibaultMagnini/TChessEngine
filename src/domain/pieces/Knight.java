@@ -16,7 +16,7 @@ public class Knight extends Piece {
 
     private int[] POSSIBLE_MOVES_OPTIONS = {-17, -15, -10, -6, 6, 10, 15, 17};
 
-    Knight(int piecePos, Color color){
+    public Knight(Color color, int piecePos){
         super(piecePos, color);
     }
 
@@ -66,5 +66,10 @@ public class Knight extends Piece {
 
     private boolean isEightColumnBoundary(int currentPos, int possibleOffset) {
         return BoardUtils.EIGHT_COLUMN[currentPos] && (possibleOffset == 17 || possibleOffset == -6 || possibleOffset == 10 || possibleOffset == -15);
+    }
+
+    @Override
+    public String toString() {
+        return "♘";
     }
 }

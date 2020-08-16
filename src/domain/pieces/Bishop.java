@@ -16,7 +16,7 @@ public class Bishop extends Piece{
 
     private int[] POSSIBLE_MOVES_OPTIONS = {-9, -7, 7, 9};
 
-    Bishop(int piecePos, Color color) { super(piecePos, color); }
+    public Bishop(Color color, int piecePos) { super(piecePos, color); }
 
     @Override
     public List<Move> legalMoves(Board board) {
@@ -58,5 +58,10 @@ public class Bishop extends Piece{
 
     private boolean isEightColumnBoundary(int currentPos, int possibleOffset) {
         return BoardUtils.FIRST_COLUMN[currentPos] && (possibleOffset == 9 || possibleOffset == -7);
+    }
+
+    @Override
+    public String toString() {
+        return "♗";
     }
 }

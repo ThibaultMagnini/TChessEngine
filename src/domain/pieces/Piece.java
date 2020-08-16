@@ -28,4 +28,7 @@ public abstract class Piece {
         return this.isFirstMove;
     }
 
+    public int getPiecePosition() {
+        return this.piecePos;
+    }
 }

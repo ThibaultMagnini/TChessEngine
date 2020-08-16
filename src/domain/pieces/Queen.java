@@ -16,7 +16,7 @@ public class Queen extends Piece {
 
     private int[] POSSIBLE_MOVES_OPTIONS = {-8, 1, -1, 8, -9, -7, 7, 9};
 
-    Queen(int piecePos, Color pieceColor) {
+    public Queen(Color pieceColor, int piecePos) {
         super(piecePos, pieceColor);
     }
 
@@ -61,5 +61,10 @@ public class Queen extends Piece {
 
     private boolean isEightColumnBoundary(int currentPos, int possibleOffset) {
         return BoardUtils.FIRST_COLUMN[currentPos] && (possibleOffset == 9 || possibleOffset == -7 || possibleOffset == 1);
+    }
+
+    @Override
+    public String toString() {
+        return "♕";
     }
 }
