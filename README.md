@@ -1,5 +1,5 @@
 # ♟️ TChessEngine ♟️
-This is me Trying to make a simple chess engine.
+This Side project is currently on hold due to school related priorities.
 
 
 ## Console Output 8/17/2020
