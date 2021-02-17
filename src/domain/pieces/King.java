@@ -17,7 +17,7 @@ public class King extends Piece{
     private int[] POSSIBLE_MOVES_OPTIONS = {-9, -7, 7, 9, 8, -8, -1, 1};
 
     public King(Color pieceColor, int piecePos) {
-        super(piecePos, pieceColor);
+        super(PieceType.KING,piecePos, pieceColor);
     }
 
     @Override

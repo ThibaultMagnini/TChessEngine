@@ -4,8 +4,12 @@ import com.google.common.collect.ImmutableList;
 import domain.Color;
 import domain.board.moves.Move;
 import domain.pieces.*;
+import domain.player.BlackPlayer;
+import domain.player.Player;
+import domain.player.WhitePlayer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Board {
@@ -14,6 +18,9 @@ public class Board {
     private List<Piece> whitePieces;
     private List<Piece> blackPieces;
 
+    private final WhitePlayer whitePlayer;
+    private final BlackPlayer blackPlayer;
+
     public Board(Builder builder){
         this.board = createBoard(builder);
         this.whitePieces = calculateActivePieces(this.board, Color.WHITE);
@@ -21,6 +28,18 @@ public class Board {
 
         List<Move> whiteLegalMoves = calculateLegalMoves(this.whitePieces);
         List<Move> blackLegalMoves = calculateLegalMoves(this.blackPieces);
+
+        this.whitePlayer = new WhitePlayer(this, whiteLegalMoves, blackLegalMoves);
+        this.blackPlayer = new BlackPlayer(this, whiteLegalMoves, blackLegalMoves);
+    }
+
+
+    public Collection<Piece> getBlackPieces(){
+        return this.blackPieces;
+    }
+
+    public Collection<Piece> getWhitePieces() {
+        return this.whitePieces;
     }
 
     private List<Move> calculateLegalMoves(List<Piece> pieces) {
@@ -97,6 +116,15 @@ public class Board {
 
     public Tile getTile(int tilePos){
         return board.get(tilePos);
+    }
+
+
+    public Player blackPlayer() {
+        return this.blackPlayer;
+    }
+
+    public Player whitePlayer() {
+        return this.whitePlayer;
     }
 
     @Override

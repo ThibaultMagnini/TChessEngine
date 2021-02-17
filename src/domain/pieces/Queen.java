@@ -17,7 +17,7 @@ public class Queen extends Piece {
     private int[] POSSIBLE_MOVES_OPTIONS = {-8, 1, -1, 8, -9, -7, 7, 9};
 
     public Queen(Color pieceColor, int piecePos) {
-        super(piecePos, pieceColor);
+        super(PieceType.QUEEN,piecePos, pieceColor);
     }
 
     @Override

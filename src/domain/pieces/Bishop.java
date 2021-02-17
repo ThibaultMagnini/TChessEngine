@@ -16,7 +16,7 @@ public class Bishop extends Piece{
 
     private int[] POSSIBLE_MOVES_OPTIONS = {-9, -7, 7, 9};
 
-    public Bishop(Color color, int piecePos) { super(piecePos, color); }
+    public Bishop(Color color, int piecePos) { super(PieceType.BISHOP ,piecePos, color); }
 
     @Override
     public List<Move> legalMoves(Board board) {

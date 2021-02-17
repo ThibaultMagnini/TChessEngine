@@ -3,18 +3,22 @@ package domain.pieces;
 import domain.Color;
 import domain.board.Board;
 import domain.board.moves.Move;
+import javafx.scene.chart.PieChart;
 
 import java.util.List;
 
 public abstract class Piece {
 
+    protected final PieceType pieceType;
     protected final int piecePos;
     protected final Color pieceColor;
     protected final boolean isFirstMove;
 
-    Piece(int piecePos, Color pieceColor){
+    Piece(PieceType pieceType, int piecePos, Color pieceColor){
         this.pieceColor = pieceColor;
         this.piecePos = piecePos;
+        this.pieceType = pieceType;
+
         this.isFirstMove = false;
     }
 
@@ -30,5 +34,9 @@ public abstract class Piece {
 
     public int getPiecePosition() {
         return this.piecePos;
+    }
+
+    public PieceType getPieceType() {
+        return this.pieceType;
     }
 }

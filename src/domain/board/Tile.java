@@ -24,9 +24,6 @@ public abstract class Tile {
 
     }
 
-
-
-
     public static Tile createTile(int tileNumber, Piece piece){
         if (piece != null)
             return new OccupiedTile(tileNumber, piece);

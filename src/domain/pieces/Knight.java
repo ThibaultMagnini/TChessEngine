@@ -17,7 +17,7 @@ public class Knight extends Piece {
     private int[] POSSIBLE_MOVES_OPTIONS = {-17, -15, -10, -6, 6, 10, 15, 17};
 
     public Knight(Color color, int piecePos){
-        super(piecePos, color);
+        super(PieceType.KNIGHT, piecePos, color);
     }
 
     @Override

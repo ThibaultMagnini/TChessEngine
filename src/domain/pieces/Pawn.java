@@ -17,7 +17,7 @@ public class Pawn extends Piece {
     private int[] POSSIBLE_MOVES_OPTIONS = {8, 16, 7, 9};
 
     public Pawn(Color pieceColor, int piecePos) {
-        super(piecePos, pieceColor);
+        super(PieceType.PAWN, piecePos, pieceColor);
     }
 
     @Override
