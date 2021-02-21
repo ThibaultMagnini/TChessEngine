@@ -10,7 +10,7 @@ import java.util.Map;
 public class Builder {
 
     Map<Integer, Piece> boardConfig;
-    private Color nextUp;
+    Color nextUp;
 
     public Builder(){
         this.boardConfig = new HashMap<>();

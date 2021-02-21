@@ -9,6 +9,7 @@ import domain.board.moves.AttackMove;
 import domain.board.moves.MajorMove;
 import domain.board.moves.Move;
 
+import java.nio.file.WatchEvent.Kind;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +52,10 @@ public class King extends Piece{
         return ImmutableList.copyOf(legalMoves);
     }
 
+    @Override
+    public King movePiece(Move move) {
+        return new King(move.getMovedPiece().getPieceColor(), move.getDestinationCoordinate());
+    }
 
     private boolean isFirstColumnBoundary(int currentPos, int possibleOffset) {
         return BoardUtils.FIRST_COLUMN[currentPos] && (possibleOffset == -9 || possibleOffset == -1 || possibleOffset == -7);

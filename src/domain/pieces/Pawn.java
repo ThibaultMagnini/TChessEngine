@@ -9,6 +9,7 @@ import domain.board.moves.MajorMove;
 import domain.board.moves.Move;
 import domain.board.moves.PawnMove;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +67,11 @@ public class Pawn extends Piece {
             }
         }
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public Pawn movePiece(Move move) {
+        return new Pawn(move.getMovedPiece().getPieceColor(), move.getDestinationCoordinate());
     }
 
     @Override

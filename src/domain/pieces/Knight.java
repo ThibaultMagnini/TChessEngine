@@ -52,6 +52,11 @@ public class Knight extends Piece {
         return ImmutableList.copyOf(legalMoves);
     }
 
+    @Override
+    public Knight movePiece(Move move) {
+        return new Knight(move.getMovedPiece().getPieceColor(), move.getDestinationCoordinate());
+    }
+
     private boolean isFirstColumnBoundary(int currentPos, int possibleOffset) {
         return BoardUtils.FIRST_COLUMN[currentPos] && (possibleOffset == -17 || possibleOffset == -10 || possibleOffset == 6 || possibleOffset == 15);
     }

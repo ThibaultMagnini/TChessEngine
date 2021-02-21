@@ -54,6 +54,10 @@ public class Queen extends Piece {
         return ImmutableList.copyOf(legalMoves);
     }
 
+    @Override
+    public Queen movePiece(Move move) {
+        return new Queen(move.getMovedPiece().getPieceColor(), move.getDestinationCoordinate());
+    }
 
     private boolean isFirstColumnBoundary(int currentPos, int possibleOffset) {
         return BoardUtils.FIRST_COLUMN[currentPos] && (possibleOffset == -9 || possibleOffset == 7 || possibleOffset == -1);

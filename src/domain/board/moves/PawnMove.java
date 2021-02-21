@@ -7,4 +7,9 @@ public class PawnMove extends Move {
     public PawnMove(Board board, Piece movedPiece, int destinationMovedPiece) {
         super(board, movedPiece, destinationMovedPiece);
     }
+
+    @Override
+    public String toString() {
+        return this.getMovedPiece().getPiecePosition() + "" + this.getDestinationCoordinate();
+    }
 }

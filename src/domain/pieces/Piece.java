@@ -13,6 +13,9 @@ public abstract class Piece {
     protected final int piecePos;
     protected final Color pieceColor;
     protected final boolean isFirstMove;
+    private final int cachedHashCode;
+
+
 
     Piece(PieceType pieceType, int piecePos, Color pieceColor){
         this.pieceColor = pieceColor;
@@ -20,6 +23,7 @@ public abstract class Piece {
         this.pieceType = pieceType;
 
         this.isFirstMove = false;
+        this.cachedHashCode = computeHashCode();
     }
 
     public abstract List<Move> legalMoves(Board board);
@@ -38,5 +42,32 @@ public abstract class Piece {
 
     public PieceType getPieceType() {
         return this.pieceType;
+    }
+
+    public abstract Piece movePiece(Move move);
+
+    private int computeHashCode() {
+        int result = pieceType.hashCode();
+        result = 31 * result + pieceColor.hashCode();
+        result = 31 * result + piecePos;
+        result = 31 * result + (isFirstMove? 1 : 0);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj){
+            return true;
+        }
+        if (!(obj instanceof Piece)) {
+            return false;
+        }
+        Piece otherPiece = (Piece) obj;
+        return piecePos == otherPiece.getPiecePosition() && pieceType == otherPiece.getPieceType() && pieceColor == otherPiece.getPieceColor() && isFirstMove == otherPiece.isFirstMove();
+    }
+
+    @Override
+    public int hashCode() {
+        return  this.cachedHashCode;
     }
 }

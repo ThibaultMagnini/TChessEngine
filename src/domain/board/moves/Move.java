@@ -1,6 +1,7 @@
 package domain.board.moves;
 
 import domain.board.Board;
+import domain.board.Builder;
 import domain.pieces.Piece;
 
 public abstract class Move {
@@ -15,12 +16,34 @@ public abstract class Move {
         this.destinationMovedPiece = destinationMovedPiece;
     }
 
+    public Piece getMovedPiece() {
+        return movedPiece;
+    }
 
     public int getDestinationCoordinate() {
         return this.destinationMovedPiece;
     }
 
     public Board execute(){
-        return null;
+
+        Builder builder = new Builder();
+
+        for (final Piece p : this.board.getCurrentPlayer().getActivePieces()){
+            if (!this.movedPiece.equals(p)){
+                builder.setPiece(p);
+            }
+        }
+
+        for (Piece p : this.board.getCurrentPlayer().getOpponent().getActivePieces()){
+            builder.setPiece(p);
+        }
+
+        builder.setPiece(this.movedPiece.movePiece(this));
+        builder.setMoveMaker(this.board.getCurrentPlayer().getOpponent().getColor());
+
+        Board res = builder.build();
+        System.out.println(res.toString());
+        return res;
     }
+
 }

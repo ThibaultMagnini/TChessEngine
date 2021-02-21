@@ -1,5 +1,9 @@
 package domain;
 
+import domain.player.BlackPlayer;
+import domain.player.Player;
+import domain.player.WhitePlayer;
+
 public enum Color {
     WHITE {
         @Override
@@ -15,6 +19,11 @@ public enum Color {
         @Override
         public boolean isWhite() {
             return true;
+        }
+
+        @Override
+        public Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer) {
+            return whitePlayer;
         }
     },
     BLACK {
@@ -32,6 +41,11 @@ public enum Color {
         public boolean isWhite() {
             return false;
         }
+
+        @Override
+        public Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer) {
+            return blackPlayer;
+        }
     };
 
     public abstract int getDirection();
@@ -39,4 +53,6 @@ public enum Color {
     public abstract boolean isBlack();
 
     public abstract boolean isWhite();
+
+    public abstract Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer);
 }

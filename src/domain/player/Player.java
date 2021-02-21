@@ -86,9 +86,9 @@ public abstract class Player
 
     public MoveTransition makeMove(Move move){
 
-        if (!isMoveLegal(move)) {
+        /*if (!isMoveLegal(move)) {
             return new MoveTransition(this.board, move, MoveStatus.ILLEGAL_MOVE);
-        }
+        }*/
 
         final Board transitionBoard = move.execute();
         final Collection<Move> kingAttacks = Player.calculateAttacksOnTile(transitionBoard.getCurrentPlayer().getOpponent().getPlayerKing().getPiecePosition(), transitionBoard.getCurrentPlayer().getLegalMoves());
