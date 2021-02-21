@@ -16,4 +16,11 @@ public abstract class Move {
     }
 
 
+    public int getDestinationCoordinate() {
+        return this.destinationMovedPiece;
+    }
+
+    public Board execute(){
+        return null;
+    }
 }

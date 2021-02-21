@@ -20,6 +20,7 @@ public class Board {
 
     private final WhitePlayer whitePlayer;
     private final BlackPlayer blackPlayer;
+    private Player currentPlayer;
 
     public Board(Builder builder){
         this.board = createBoard(builder);
@@ -31,6 +32,7 @@ public class Board {
 
         this.whitePlayer = new WhitePlayer(this, whiteLegalMoves, blackLegalMoves);
         this.blackPlayer = new BlackPlayer(this, whiteLegalMoves, blackLegalMoves);
+        this.currentPlayer = null;
     }
 
 
@@ -40,6 +42,10 @@ public class Board {
 
     public Collection<Piece> getWhitePieces() {
         return this.whitePieces;
+    }
+
+    public Player getCurrentPlayer() {
+        return this.currentPlayer;
     }
 
     private List<Move> calculateLegalMoves(List<Piece> pieces) {
@@ -147,5 +153,4 @@ public class Board {
             return tile.toString();
         }
     }
-
 }
